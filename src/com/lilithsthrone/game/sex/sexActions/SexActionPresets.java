@@ -55,6 +55,7 @@ import com.lilithsthrone.game.sex.sexActions.baseActions.TongueBreasts;
 import com.lilithsthrone.game.sex.sexActions.baseActions.TongueBreastsCrotch;
 import com.lilithsthrone.game.sex.sexActions.baseActions.TongueMound;
 import com.lilithsthrone.game.sex.sexActions.baseActions.TongueMouth;
+import com.lilithsthrone.game.sex.sexActions.baseActions.FrenchKiss;
 import com.lilithsthrone.game.sex.sexActions.baseActions.TongueNipple;
 import com.lilithsthrone.game.sex.sexActions.baseActions.TongueNippleCrotch;
 import com.lilithsthrone.game.sex.sexActions.baseActions.TongueVagina;
@@ -255,6 +256,9 @@ public class SexActionPresets {
 
 	public static HashMap<SexAreaInterface, List<SexAreaInterface>> kissing = new HashMap<>();
 
+	public static HashMap<SexAreaInterface, List<SexAreaInterface>> frenching = new HashMap<>();
+
+
 	public static HashMap<SexAreaInterface, List<SexAreaInterface>> breastsToPenis = new HashMap<>();
 	
 	public static HashMap<SexAreaInterface, List<SexAreaInterface>> mouthToBreasts = new HashMap<>();
@@ -357,6 +361,7 @@ public class SexActionPresets {
 		
 		for(SexAreaInterface area : mouthAreas) {
 			kissing.put(area, mouthAreas);
+			frenching.put(area, mouthAreas);
 			mouthToAss.put(area, assAreas);
 			mouthToVagina.put(area, vaginaAreas);
 			mouthToPenis.put(area, penisAreas);
@@ -456,6 +461,7 @@ public class SexActionPresets {
 		sexActions.add(FootMouth.class);
 		sexActions.add(PenisMouth.class);
 		sexActions.add(TongueArmpit.class);
+		sexActions.add(FrenchKiss.class);
 
 		// Tail actions:
 		sexActions.add(TailAnus.class);

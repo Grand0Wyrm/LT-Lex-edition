@@ -8,53 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.lilithsthrone.game.sex.sexActions.baseActions.ClitAnus;
-import com.lilithsthrone.game.sex.sexActions.baseActions.ClitClit;
-import com.lilithsthrone.game.sex.sexActions.baseActions.ClitMouth;
-import com.lilithsthrone.game.sex.sexActions.baseActions.ClitNipple;
-import com.lilithsthrone.game.sex.sexActions.baseActions.ClitNippleCrotch;
-import com.lilithsthrone.game.sex.sexActions.baseActions.ClitVagina;
-import com.lilithsthrone.game.sex.sexActions.baseActions.FingerAnus;
-import com.lilithsthrone.game.sex.sexActions.baseActions.FingerBreasts;
-import com.lilithsthrone.game.sex.sexActions.baseActions.FingerBreastsCrotch;
-import com.lilithsthrone.game.sex.sexActions.baseActions.FingerClit;
-import com.lilithsthrone.game.sex.sexActions.baseActions.FingerFinger;
-import com.lilithsthrone.game.sex.sexActions.baseActions.FingerMouth;
-import com.lilithsthrone.game.sex.sexActions.baseActions.FingerNipple;
-import com.lilithsthrone.game.sex.sexActions.baseActions.FingerNippleCrotch;
-import com.lilithsthrone.game.sex.sexActions.baseActions.FingerPenis;
-import com.lilithsthrone.game.sex.sexActions.baseActions.FingerVagina;
-import com.lilithsthrone.game.sex.sexActions.baseActions.FootMouth;
-import com.lilithsthrone.game.sex.sexActions.baseActions.PenisAnus;
-import com.lilithsthrone.game.sex.sexActions.baseActions.PenisArmpit;
-import com.lilithsthrone.game.sex.sexActions.baseActions.PenisAss;
-import com.lilithsthrone.game.sex.sexActions.baseActions.PenisBreasts;
-import com.lilithsthrone.game.sex.sexActions.baseActions.PenisBreastsCrotch;
-import com.lilithsthrone.game.sex.sexActions.baseActions.PenisFeet;
-import com.lilithsthrone.game.sex.sexActions.baseActions.PenisFoot;
-import com.lilithsthrone.game.sex.sexActions.baseActions.PenisMouth;
-import com.lilithsthrone.game.sex.sexActions.baseActions.PenisNipple;
-import com.lilithsthrone.game.sex.sexActions.baseActions.PenisNippleCrotch;
-import com.lilithsthrone.game.sex.sexActions.baseActions.PenisSpinneret;
-import com.lilithsthrone.game.sex.sexActions.baseActions.PenisThighs;
-import com.lilithsthrone.game.sex.sexActions.baseActions.PenisUrethraPenis;
-import com.lilithsthrone.game.sex.sexActions.baseActions.PenisUrethraVagina;
-import com.lilithsthrone.game.sex.sexActions.baseActions.PenisVagina;
-import com.lilithsthrone.game.sex.sexActions.baseActions.TailAnus;
-import com.lilithsthrone.game.sex.sexActions.baseActions.TailMouth;
-import com.lilithsthrone.game.sex.sexActions.baseActions.TailVagina;
-import com.lilithsthrone.game.sex.sexActions.baseActions.TentacleAnus;
-import com.lilithsthrone.game.sex.sexActions.baseActions.TentacleMouth;
-import com.lilithsthrone.game.sex.sexActions.baseActions.TentacleVagina;
-import com.lilithsthrone.game.sex.sexActions.baseActions.TongueAnus;
-import com.lilithsthrone.game.sex.sexActions.baseActions.TongueArmpit;
-import com.lilithsthrone.game.sex.sexActions.baseActions.TongueBreasts;
-import com.lilithsthrone.game.sex.sexActions.baseActions.TongueBreastsCrotch;
-import com.lilithsthrone.game.sex.sexActions.baseActions.TongueMound;
-import com.lilithsthrone.game.sex.sexActions.baseActions.TongueMouth;
-import com.lilithsthrone.game.sex.sexActions.baseActions.TongueNipple;
-import com.lilithsthrone.game.sex.sexActions.baseActions.TongueNippleCrotch;
-import com.lilithsthrone.game.sex.sexActions.baseActions.TongueVagina;
+import com.lilithsthrone.game.sex.sexActions.baseActions.*;
 import com.lilithsthrone.game.sex.sexActions.baseActionsMisc.GenericActions;
 import com.lilithsthrone.game.sex.sexActions.baseActionsMisc.GenericOrgasms;
 import com.lilithsthrone.game.sex.sexActions.baseActionsMisc.GenericPositioning;
@@ -205,6 +159,7 @@ public class SexActionManager {
 				new Value<>("FootMouth", FootMouth.class.getFields()),
 				new Value<>("PenisMouth", PenisMouth.class.getFields()),
 				new Value<>("TongueArmpits", TongueArmpit.class.getFields()),
+				new Value<>("FrenchKiss", FrenchKiss.class.getFields()),
 
 				// Tail actions:
 				new Value<>("TailAnus", TailAnus.class.getFields()),

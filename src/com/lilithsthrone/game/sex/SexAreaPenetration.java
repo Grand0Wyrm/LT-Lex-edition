@@ -958,6 +958,10 @@ public enum SexAreaPenetration implements SexAreaInterface {
 			return owner.getVaginaRawClitorisSizeValue();
 		}
 		@Override
+		public float getDiameter(GameCharacter owner, int atLength) {
+			return owner.getClitorisDiameter();
+		}
+		@Override
 		public boolean isFree(GameCharacter owner) {
 			return Main.sex.isPenetrationTypeFree(owner, this);
 		}
@@ -1633,6 +1637,10 @@ public enum SexAreaPenetration implements SexAreaInterface {
 		@Override
 		public int getLength(GameCharacter owner, boolean penetrationLength) {
 			return owner.getTongueLengthValue();
+		}
+		@Override
+		public float getDiameter(GameCharacter owner, int atLength) {
+			return (float)(2*Math.pow(owner.getTongueLengthValue(),0.3));
 		}
 		@Override
 		public boolean isFree(GameCharacter owner) {
