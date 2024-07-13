@@ -744,6 +744,11 @@ public class FrenchKiss {
 			SexParticipantType.NORMAL) {
 
 		@Override
+		public boolean isBaseRequirementsMet() {
+			return Main.sex.getCharacterPerformingAction().getTongueLengthValue() > 2;
+		}
+
+		@Override
 		public String getActionTitle() {
 			return "Stop french kissing";
 		}
@@ -817,7 +822,8 @@ public class FrenchKiss {
 
 		@Override
 		public boolean isBaseRequirementsMet() {
-			return Main.sex.getSexPace(Main.sex.getCharacterPerformingAction())!=SexPace.SUB_RESISTING;
+			return Main.sex.getSexPace(Main.sex.getCharacterPerformingAction())!=SexPace.SUB_RESISTING
+					&&Main.sex.getCharacterPerformingAction().getTongueLengthValue() >= TongueLength.THREE_EXTREMELY_LONG.getMedianValue();
 		}
 
 		@Override
@@ -827,13 +833,13 @@ public class FrenchKiss {
 
 			return UtilText.parse(performer, target,
 					UtilText.returnStringAtRandom(
-							"Letting out a muffled [npc.moan], [npc.name] [npc.verb(concentrate)] on squeezing the extra internal muscles within [npc.her] throat down around [npc2.namePos] [npc2.cock+].",
-							(!isTargetedCharacterInanimate()
-									?"[npc.Name] [npc.verb(let)] out a muffled [npc.moan] as [npc.she] [npc.verb(focus)] on controlling the extra muscles lining the insides of [npc.her] throat."
-									+ " Gripping and squeezing them down around the [npc2.cock+] in [npc.her] mouth, [npc.name] [npc.verb(cause)] [npc2.name] to let out an involuntary cry of pleasure."
-									:""),
-							"[npc.Name] [npc.verb(find)] [npc.her] letting out a series of muffled [npc.moans] as [npc.she] [npc.verb(concentrate)] on squeezing the extra muscles within [npc.her] throat down around [npc2.namePos] [npc2.cock+].",
-							"With a muffled [npc.moan], [npc.name] [npc.verb(focus)] on controlling the extra muscles deep within [npc.her] throat, gripping them down and massaging [npc2.namePos] [npc2.cock+]."));
+							"Letting out an eager [npc.moan], [npc.Name] decide to push [npc.her] [npc.tongue+] deeper and deeper into [npc2.her] mouth until [npc.she] reach the back of [npc2.her] throat, with length to spare however,"
+										+ " [npc.she] decided to not stop there and continue maneuvering [npc.her] [npc.tongue+] deeper into [npc2.her] body as drool starts to escape from the edges of [npc2.her] filled mouth."
+										+ " As [npc2.she] starts to struggle from the continuous lack of breath, [npc.she] gently reassure [npc2.herHim] by cupping [npc2.her] head between [npc.her] [npc.hands], holding [npc2.herHim] in place as [npc.her] [npc.tongue+] reaches deeper into [npc2.herHim] still."
+										+ " Savouring this moment as long as possible, [npc.she] continue to squirm [npc.her] [npc.tongueSize] [npc.tongue+] within [npc2.her] throat, causing it to bulge excessively, just to [npc.her] liking."
+										+ " After a few more moments of such an intimate embrace [npc.she] slowly start pulling out [npc.her] [npc.tongueSize] [npc.tongue+], sliding it out of [npc2.her] throat slowly before pulling it entirely out of [npc2.her] mouth and back into [npc.her] own, "
+										+ " Giving [npc2.herHim] a moment to recover as [npc2.she] pants for air, [npc.she] give [npc2.her] lips a playful lick before resuming [npc.her] french kiss."));
+
 		}
 	};
 

@@ -17,7 +17,9 @@ public enum TongueLength {
 
 	THREE_EXTREMELY_LONG("extremely long", 20, 30),
 
-	FOUR_ABSURDLY_LONG("absurdly long", 30, 60);
+	FOUR_ABSURDLY_LONG("absurdly long", 30, 60),
+
+	FIVE_MONSTROUSLY_LONG("monstrously long", 60, 170 );
 
 	private int minimumValue, maximumValue;
 	private String descriptor;
@@ -46,7 +48,7 @@ public enum TongueLength {
 				return ps;
 			}
 		}
-		return FOUR_ABSURDLY_LONG;
+		return FIVE_MONSTROUSLY_LONG;
 	}
 	
 	public String getDescriptor() {

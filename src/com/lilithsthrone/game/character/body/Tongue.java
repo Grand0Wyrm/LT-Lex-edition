@@ -142,7 +142,7 @@ public class Tongue implements BodyPartInterface {
 
 	public String setTongueLength(GameCharacter owner, int tongueLength) {
 		int oldTongueLength = this.tongueLength;
-		this.tongueLength = Math.max(0, Math.min(tongueLength, TongueLength.FOUR_ABSURDLY_LONG.getMaximumValue()));
+		this.tongueLength = Math.max(0, Math.min(tongueLength, TongueLength.FIVE_MONSTROUSLY_LONG.getMaximumValue()));
 		int sizeChange = this.tongueLength - oldTongueLength;
 		
 		if(sizeChange == 0) {

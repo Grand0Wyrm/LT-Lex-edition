@@ -516,7 +516,7 @@ public abstract class AbstractItemEffectType {
 					case TF_MOD_SIZE:
 						return LipSize.FOUR_HUGE.getValue();
 					case TF_MOD_SIZE_SECONDARY:
-						return TongueLength.FOUR_ABSURDLY_LONG.getMaximumValue();
+						return TongueLength.FIVE_MONSTROUSLY_LONG.getMaximumValue();
 					case TF_MOD_BODY_HAIR:
 						return BodyHair.SEVEN_WILD.getValue();
 					default:
