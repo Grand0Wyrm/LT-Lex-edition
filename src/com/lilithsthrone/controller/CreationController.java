@@ -1918,6 +1918,86 @@ public class CreationController {
 			}
 		}
 	}
+
+	// TailPussy
+	public static void initTailPussyCapacityListeners() {
+		for (Capacity capacity : Capacity.getCapacityListFromPreferences()) {
+			String id = "TAIL_PUSSY_CAPACITY_"+capacity;
+			if (MainController.document.getElementById(id) != null) {
+				((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e->{
+					BodyChanging.getTarget().setTailPussyCapacity(capacity.getMedianValue(), true);
+					Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+				}, false);
+			}
+		}
+	}
+
+	public static void initTailPussyDepthListeners() {
+		for (OrificeDepth depth : OrificeDepth.values()) {
+			String id = "TAIL_PUSSY_DEPTH_"+depth;
+			if (MainController.document.getElementById(id) != null) {
+				((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e->{
+					BodyChanging.getTarget().setTailPussyDepth(depth.getValue());
+					Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+				}, false);
+			}
+		}
+	}
+
+	public static void initTailPussyElasticityListeners() {
+		for (OrificeElasticity elasticity : OrificeElasticity.values()) {
+			String id = "TAIL_PUSSY_ELASTICITY_"+elasticity;
+			if (MainController.document.getElementById(id) != null) {
+				((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e->{
+					BodyChanging.getTarget().setTailPussyElasticity(elasticity.getValue());
+					Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+				}, false);
+			}
+		}
+	}
+
+	public static void initTailPussyModifierListeners() {
+		for (OrificeModifier orificeMod : OrificeModifier.values()) {
+			String id = "TAIL_PUSSY_MOD_"+orificeMod;
+			if (MainController.document.getElementById(id) != null) {
+				((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e->{
+					if (BodyChanging.getTarget().hasTailPussyOrificeModifier(orificeMod)) {
+						BodyChanging.getTarget().removeTailPussyOrificeModifier(orificeMod);
+					} else {
+						BodyChanging.getTarget().addTailPussyOrificeModifier(orificeMod);
+					}
+					Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+				}, false);
+				MainController.addTooltipListeners(id, new TooltipInformationEventListener().setInformation(
+						Util.capitaliseSentence(orificeMod.getName()),
+						(orificeMod.isSpecialEffects()?"[style.boldGood(Special Effect:)] ":"")+orificeMod.getDescription()));
+			}
+		}
+	}
+
+	public static void initTailPussyPlasticityListeners() {
+		for (OrificePlasticity plasticity : OrificePlasticity.values()) {
+			String id = "TAIL_PUSSY_PLASTICITY_"+plasticity;
+			if (MainController.document.getElementById(id) != null) {
+				((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e->{
+					BodyChanging.getTarget().setTailPussyPlasticity(plasticity.getValue());
+					Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+				}, false);
+			}
+		}
+	}
+
+	public static void initTailPussyWetnessListeners() {
+		for (Wetness wetness : Wetness.values()) {
+			String id = "TAIL_PUSSY_WETNESS_"+wetness;
+			if (MainController.document.getElementById(id) != null) {
+				((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e->{
+					BodyChanging.getTarget().setTailPussyWetness(wetness.getValue());
+					Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+				}, false);
+			}
+		}
+	}
 	
 	// Tail
 	public static void initTailTypeListeners() {

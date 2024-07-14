@@ -75,6 +75,7 @@ import com.lilithsthrone.game.sex.sexActions.baseActionsSelf.SelfFingerMouth;
 import com.lilithsthrone.game.sex.sexActions.baseActionsSelf.SelfFingerNipple;
 import com.lilithsthrone.game.sex.sexActions.baseActionsSelf.SelfFingerPenis;
 import com.lilithsthrone.game.sex.sexActions.baseActionsSelf.SelfFingerVagina;
+import com.lilithsthrone.game.sex.sexActions.baseActionsSelf.SelfFingerTail;
 import com.lilithsthrone.game.sex.sexActions.baseActionsSelf.SelfNoPen;
 import com.lilithsthrone.game.sex.sexActions.baseActionsSelf.SelfPenisAnus;
 import com.lilithsthrone.game.sex.sexActions.baseActionsSelf.SelfPenisMouth;

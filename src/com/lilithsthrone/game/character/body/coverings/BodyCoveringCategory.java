@@ -35,6 +35,7 @@ public enum BodyCoveringCategory {
 	VAGINA("vagina"),
 	PENIS("penis"),
 	SPINNERET("spinneret"),
+	TAIL_PUSSY("tail pussy"),
 
 	// Other
 	BODY_HAIR("body hair"),

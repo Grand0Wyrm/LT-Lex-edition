@@ -94,7 +94,9 @@ public enum BodyPartTag {
 	// Tail (these are also used for tentacles):
 	/** Prehensile tails are those which can be manipulated into being used like an extra limb (e.g. monkey tails) */
 	TAIL_PREHENSILE,
-	
+
+	TAIL_PUSSY,
+
 	/** This tail is never suitable for penetration, even if the player has furry tail penetration turned on (e.g. rabbit or harpy tails) */
 	TAIL_NEVER_SUITABLE_FOR_PENETRATION,
 	

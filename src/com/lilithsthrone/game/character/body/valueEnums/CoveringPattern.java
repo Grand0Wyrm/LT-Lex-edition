@@ -19,6 +19,7 @@ public enum CoveringPattern {
 	ORIFICE_VAGINA(true, "vagina"),
 	ORIFICE_MOUTH(true, "mouth"),
 	ORIFICE_SPINNERET(true, "spinneret"),
+	ORIFICE_TAIL_PUSSY(true, "tail pussy"),
 	ORIFICE_NIPPLE(true, "nipple") {
 		@Override
 		public boolean isNaturalSecondColour(GameCharacter owner) {

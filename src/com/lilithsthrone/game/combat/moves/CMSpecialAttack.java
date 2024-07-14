@@ -624,7 +624,7 @@ public class CMSpecialAttack {
 				!Collections.disjoint(source.getFaceTypeTags(), Util.newArrayListOfValues(
 						BodyPartTag.FACE_MUZZLE,
 						BodyPartTag.FACE_FANGS,
-//						BodyPartTag.FACE_SHARK_TEETH,
+						BodyPartTag.FACE_SHARK_TEETH,
 						BodyPartTag.FACE_BEAK
 				)),
 				"Available to characters with an anthropomorphic face.");

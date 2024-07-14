@@ -307,6 +307,11 @@ public class BodyCoveringType {
 			BodyCoveringCategory.SPINNERET,
 			BodyCoveringTemplateFactory.createOrificeSkin(CoveringPattern.ORIFICE_SPINNERET)) {
 	};
+
+	public static AbstractBodyCoveringType TAIL_PUSSY = new AbstractBodyCoveringType(
+			BodyCoveringCategory.TAIL_PUSSY,
+			BodyCoveringTemplateFactory.createOrificeSkin(CoveringPattern.ORIFICE_TAIL_PUSSY)) {
+	};
 	
 	
 	public static AbstractBodyCoveringType ALLIGATOR_SCALES = new AbstractBodyCoveringType(
@@ -1172,6 +1177,9 @@ public class BodyCoveringType {
 							case SPINNERET:
 								bct = new AbstractBodyCoveringType(cat, BodyCoveringTemplateFactory.createSlime(CoveringPattern.ORIFICE_SPINNERET, null)) {};
 								break;
+							case TAIL_PUSSY:
+								bct = new AbstractBodyCoveringType(cat, BodyCoveringTemplateFactory.createSlime(CoveringPattern.ORIFICE_TAIL_PUSSY, null)) {};
+								break;
 								
 							case ARTIFICIAL:
 							case FLUID:
@@ -1246,6 +1254,9 @@ public class BodyCoveringType {
 								break;
 							case SPINNERET:
 								bct = new AbstractBodyCoveringType(cat, BodyCoveringTemplateFactory.createSilicone(CoveringPattern.ORIFICE_SPINNERET, null)) {};
+								break;
+							case TAIL_PUSSY:
+								bct = new AbstractBodyCoveringType(cat, BodyCoveringTemplateFactory.createSilicone(CoveringPattern.ORIFICE_TAIL_PUSSY, null)) {};
 								break;
 								
 							case ARTIFICIAL:
@@ -1438,6 +1449,10 @@ public class BodyCoveringType {
 								case SPINNERET:
 									naturalPattern = CoveringPattern.ORIFICE_SPINNERET;
                                                                         useAvailablePatterns = false;
+									break;
+								case TAIL_PUSSY:
+									naturalPattern = CoveringPattern.ORIFICE_TAIL_PUSSY;
+																		useAvailablePatterns = false;
 									break;
 								case ARTIFICIAL:
 								case FLUID:

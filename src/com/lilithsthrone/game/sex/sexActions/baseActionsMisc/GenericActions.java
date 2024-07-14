@@ -4551,6 +4551,10 @@ public class GenericActions {
 						// Spinneret transformation restrictions are too complex to handle, so just prevent ability to lay eggs in it.
 //						isPenetratingSuitableOrifice = getCharacterToBeEgged().getIncubationLitter((SexAreaOrifice) areaContacted)==null;
 						return false;
+					case TAIL_PUSSY:
+						// Spinneret transformation restrictions are too complex to handle, so just prevent ability to lay eggs in it.
+//						isPenetratingSuitableOrifice = getCharacterToBeEgged().getIncubationLitter((SexAreaOrifice) areaContacted)==null;
+						return false;
 					case VAGINA:
 						isPenetratingSuitableOrifice = getCharacterToBeEgged().getIncubationLitter((SexAreaOrifice) areaContacted)==null && !getCharacterToBeEgged().isPregnant();
 						break;

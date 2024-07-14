@@ -1994,6 +1994,41 @@ public class BodyChanging {
 			
 			return UtilText.nodeContentSB.toString();
 		}
+
+		public static final DialogueNode BODY_CHANGING_TAIL_PUSSY = new DialogueNode("Tail Pussy", "", true) {
+
+			@Override
+			public String getHeaderContent() {
+				UtilText.nodeContentSB.setLength(0);
+
+				UtilText.nodeContentSB.append(
+						getSelfTransformDescription("tailPussy")
+
+								+"<div style='clear:left;'>"
+								+ CharacterModificationUtils.getSelfTransformTailPussyModifiersDiv()
+								+ CharacterModificationUtils.getSelfTransformTailPussyWetnessDiv()
+								+"</div>"
+
+								+"<div style='clear:left;'>"
+								+ CharacterModificationUtils.getSelfTransformTailPussyCapacityDiv()
+								+ CharacterModificationUtils.getSelfTransformTailPussyDepthDiv()
+								+"</div>"
+
+								+"<div style='clear:left;'>"
+								+ CharacterModificationUtils.getSelfTransformTailPussyElasticityDiv()
+								+ CharacterModificationUtils.getSelfTransformTailPussyPlasticityDiv()
+								+"</div>"
+
+								+ CharacterModificationUtils.getKatesDivCoveringsNew(false,
+								BodyChanging.getTarget().hasTailTailPussy()
+										:BodyChanging.getTarget().getTailRace(),
+								BodyChanging.getTarget().getCovering(BodyCoveringType.TAIL_PUSSY).getType(),
+								"Tail Pussy Colour",
+								UtilText.parse(BodyChanging.getTarget(), "Change the colour of [npc.namePos] tail pussy."),
+								true, true));
+
+				return UtilText.nodeContentSB.toString();
+			}
 		
 		@Override
 		public String getContent() {

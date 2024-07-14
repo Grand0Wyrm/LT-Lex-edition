@@ -59,6 +59,8 @@ public abstract class AbstractTailType implements BodyPartTypeInterface {
 	private List<BodyPartTag> tags;
 	
 	private boolean spinneret;
+
+	private boolean tailPussy;
 	
 	/**
 	 * @param coveringType What covers this tail type (i.e skin/fur/feather type).
@@ -963,6 +965,11 @@ public abstract class AbstractTailType implements BodyPartTypeInterface {
 	}
 	
 	public boolean hasSpinneret() {
+
 		return spinneret;
+	}
+
+	public boolean hasTailPussy() {
+		return tailPussy;
 	}
 }

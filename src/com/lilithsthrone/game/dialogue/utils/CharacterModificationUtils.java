@@ -435,7 +435,7 @@ public class CharacterModificationUtils {
 		}
 		
 		if(BodyChanging.getTarget().isPlayer() && age<18) {
-			BodyChanging.getTarget().setBirthday(BodyChanging.getTarget().getBirthday().minusYears(18-age));
+			BodyChanging.getTarget().setBirthday(BodyChanging.getTarget().getBirthday().minusYears(10-age));
 		}
 		
 		if(age<0) {
@@ -5784,9 +5784,199 @@ public class CharacterModificationUtils {
 				contentSB.toString(),
 				true);
 	}
-	
-	
-	
+
+	public static String getSelfTransformTailPussyModifiersDiv() {
+		contentSB.setLength(0);
+
+		for(OrificeModifier orificeMod : OrificeModifier.values()) {
+			if(BodyChanging.getTarget().hasTailPussyOrificeModifier(orificeMod)) {
+				contentSB.append(
+						"<div id='SPINNERET_MOD_"+orificeMod+"' class='cosmetics-button active'>"
+								+ "<span style='color:"+PresetColour.TRANSFORMATION_SEXUAL.toWebHexString()+";'>"+Util.capitaliseSentence(orificeMod.getName())+(orificeMod.isSpecialEffects()?"*":"")+"</span>"
+								+ "</div>");
+
+			} else {
+				contentSB.append(
+						"<div id='SPINNERET_MOD_"+orificeMod+"' class='cosmetics-button'>"
+								+ "<span style='color:"+PresetColour.TRANSFORMATION_SEXUAL.getShades()[0]+";'>"+Util.capitaliseSentence(orificeMod.getName())+(orificeMod.isSpecialEffects()?"*":"")+"</span>"
+								+ "</div>");
+			}
+		}
+
+		return applyWrapper("TailPussy Modifiers",
+				UtilText.parse(BodyChanging.getTarget(), "Change the modifiers for [npc.namePos] spinneret."
+						+ "<br/><i>Orifice modifiers affect descriptions and some actions in sex. The modifiers which have more than just descriptive effects are marked by an asterisk.</i>"),
+				"SPINNERET_MODS",
+				contentSB.toString(),
+				true);
+	}
+
+	public static String getSelfTransformTailPussyCapacityDiv() {
+		contentSB.setLength(0);
+
+		for(Capacity value : Capacity.getCapacityListFromPreferences()) {
+			if(BodyChanging.getTarget().getTailPussyCapacity() == value) {
+				contentSB.append(
+						"<div class='cosmetics-button active'>"
+								+ "<span style='color:"+value.getColour().toWebHexString()+";'>"+Util.capitaliseSentence(value.getDescriptor())+"</span>"
+								+ "</div>");
+
+			} else {
+				contentSB.append(
+						"<div id='TAIL_PUSSY_CAPACITY_"+value+"' class='cosmetics-button'>"
+								+ "<span style='color:"+value.getColour().getShades()[0]+";'>"+Util.capitaliseSentence(value.getDescriptor())+"</span>"
+								+ "</div>");
+			}
+		}
+
+		return applyWrapper("Tail Pussy Capacity",
+				UtilText.parse(BodyChanging.getTarget(), "Change the capacity of [npc.namePos] spinneret."
+						+ "<br/><i>This affects the size of penetrative objects that [npc.namePos] spinneret can take. If capacity is too small or too large for a penetrative object, arousal gains are affected.</i>"),
+				"SPINNERET_CAPACITY",
+				contentSB.toString(),
+				true);
+	}
+
+	public static String getSelfTransformTailPussyWetnessDiv() {
+		contentSB.setLength(0);
+
+		for(Wetness value : Wetness.values()) {
+			if(BodyChanging.getTarget().getTailPussyWetness() == value) {
+				contentSB.append(
+						"<div class='cosmetics-button active'>"
+								+ "<span style='color:"+value.getColour().toWebHexString()+";'>"+Util.capitaliseSentence(value.getDescriptor())+"</span>"
+								+ "</div>");
+
+			} else {
+				if(BodyChanging.getTarget().getBodyMaterial().isOrificesAlwaysMaximumWetness()) {
+					contentSB.append(
+							"<div class='cosmetics-button disabled'>"
+									+ "<span style='color:"+PresetColour.TEXT_GREY.toWebHexString()+";'>"
+									+Util.capitaliseSentence(value.getDescriptor())
+									+"</span>"
+									+ "</div>");
+
+				} else {
+					contentSB.append(
+							"<div id='TAIL_PUSSY_WETNESS_"+value+"' class='cosmetics-button'>"
+									+ "<span style='color:"+value.getColour().getShades()[0]+";'>"+Util.capitaliseSentence(value.getDescriptor())+"</span>"
+									+ "</div>");
+				}
+			}
+		}
+
+		return applyWrapper("Tail Pussy Wetness",
+				UtilText.parse(BodyChanging.getTarget(), "Change the wetness of [npc.namePos] tail pussy."
+						+ "<br/><i>This affects pleasure in sex, as non-lubricated orifices negatively affect arousal gains.</i>"
+						+(BodyChanging.getTarget().getBodyMaterial().isOrificesAlwaysMaximumWetness()
+						?"<br/>[style.italicsWetness8(As [npc.namePos] body is made out of [npc.bodyMaterial], [npc.her] orifices can never be less than '"+Util.capitaliseSentence(Wetness.SEVEN_DROOLING.getDescriptor())+"'!)]"
+						:"")),
+				"TAIL_PUSSY_WETNESS",
+				contentSB.toString(),
+				true);
+	}
+
+	public static String getSelfTransformTailPussyDepthDiv() {
+		contentSB.setLength(0);
+
+		for(OrificeDepth value : OrificeDepth.values()) {
+			if(BodyChanging.getTarget().getTailPussyDepth() == value) {
+				contentSB.append(
+						"<div class='cosmetics-button active'>"
+								+ "<span style='color:"+value.getColour().toWebHexString()+";'>"+Util.capitaliseSentence(value.getDescriptor())+"</span>"
+								+ "</div>");
+
+			} else {
+				if(!BodyChanging.getTarget().getBodyMaterial().isOrificesLimitedDepth()) {
+					contentSB.append(
+							"<div class='cosmetics-button disabled'>"
+									+ "<span style='color:"+PresetColour.TEXT_GREY.toWebHexString()+";'>"
+									+Util.capitaliseSentence(value.getDescriptor())
+									+"</span>"
+									+ "</div>");
+
+				} else {
+					contentSB.append(
+							"<div id='TAIL_PUSSY_DEPTH_"+value+"' class='cosmetics-button'>"
+									+ "<span style='color:"+value.getColour().getShades()[0]+";'>"+Util.capitaliseSentence(value.getDescriptor())+"</span>"
+									+ "</div>");
+				}
+			}
+		}
+
+		return applyWrapper("Tail Pussy Depth",
+				UtilText.parse(BodyChanging.getTarget(), "Change the depth of [npc.namePos] tail pussy."
+						+ "<br/><i>Depth of an orifice determines the length of a penetrating object that it can comfortably accommodate.</i>"
+						+(!BodyChanging.getTarget().getBodyMaterial().isOrificesLimitedDepth()
+						?"<br/>[style.italicsSize8(As [npc.namePos] body is made out of [npc.bodyMaterial], [npc.her] orifices can never be less than '"+Util.capitaliseSentence(OrificeDepth.SEVEN_FATHOMLESS.getDescriptor())+"'!)]"
+						:"")),
+				"SPINNERET_DEPTH",
+				contentSB.toString(),
+				true);
+	}
+
+	public static String getSelfTransformTailPussyElasticityDiv() {
+		contentSB.setLength(0);
+
+		for(OrificeElasticity value : OrificeElasticity.values()) {
+			if(BodyChanging.getTarget().getTailPussyElasticity() == value) {
+				contentSB.append(
+						"<div class='cosmetics-button active'>"
+								+ "<span style='color:"+value.getColour().toWebHexString()+";'>"
+								+ Util.capitaliseSentence(value.getDescriptor())
+								+ (value.isExtendingUncomfortableDepth() && Main.game.isPenetrationLimitationsEnabled() && Main.game.isElasticityAffectDepthEnabled()?"*":"")
+								+ "</span>"
+								+ "</div>");
+
+			} else {
+				contentSB.append(
+						"<div id='TAIL_PUSSY_ELASTICITY_"+value+"' class='cosmetics-button'>"
+								+ "<span style='color:"+value.getColour().getShades()[0]+";'>"
+								+ Util.capitaliseSentence(value.getDescriptor())
+								+ (value.isExtendingUncomfortableDepth() && Main.game.isPenetrationLimitationsEnabled() && Main.game.isElasticityAffectDepthEnabled()?"*":"")
+								+ "</span>"
+								+ "</div>");
+			}
+		}
+
+		return applyWrapper("Tail Pussy Elasticity",
+				UtilText.parse(BodyChanging.getTarget(), "Change the elasticity of [npc.namePos] tail pussy."
+						+ "<br/><i>This determines how quickly [npc.namePos] spinneret will stretch out if a penetrating object is too thick for it."
+						+ (Main.game.isPenetrationLimitationsEnabled() && Main.game.isElasticityAffectDepthEnabled()?" Values marked with an asterisk increase the maximum uncomfortable depth of [npc.her] spinneret.":""))
+						+"</i>",
+				"TAIL_PUSSY_ELASTICITY",
+				contentSB.toString(),
+				true);
+	}
+
+	public static String getSelfTransformTailPussyPlasticityDiv() {
+		contentSB.setLength(0);
+
+		for(OrificePlasticity value : OrificePlasticity.values()) {
+			if(BodyChanging.getTarget().getTailPussyPlasticity() == value) {
+				contentSB.append(
+						"<div class='cosmetics-button active'>"
+								+ "<span style='color:"+value.getColour().toWebHexString()+";'>"+Util.capitaliseSentence(value.getDescriptor())+"</span>"
+								+ "</div>");
+
+			} else {
+				contentSB.append(
+						"<div id='TAIL_PUSSY_PLASTICITY_"+value+"' class='cosmetics-button'>"
+								+ "<span style='color:"+value.getColour().getShades()[0]+";'>"+Util.capitaliseSentence(value.getDescriptor())+"</span>"
+								+ "</div>");
+			}
+		}
+
+		return applyWrapper("Tail Pussy Plasticity",
+				UtilText.parse(BodyChanging.getTarget(), "Change the plasticity of [npc.namePos] tail pussy."
+						+ "<br/><i>Plasticity of an orifice determines how quickly, and by how much, it regains its original tightness after being stretched out.</i>"),
+				"TAIL_PUSSY_PLASTICITY",
+				contentSB.toString(),
+				true);
+	}
+
+
+
 	// ---------------------- Kate's Shop: ---------------------- //
 	
 	public static String getKatesDivHairLengths(boolean withCost, String title, String description) {

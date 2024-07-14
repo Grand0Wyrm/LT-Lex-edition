@@ -321,7 +321,7 @@ public abstract class GameCharacter implements XMLSaving {
 	public static final int MAX_COMBAT_MOVES = 8;
 	public static final int DEFAULT_COMBAT_AP = 3;
 
-	public static final int MINIMUM_AGE = 10;
+	public static final int MINIMUM_AGE = 18;
 	
 	public static final int DEFAULT_TIME_START_VALUE = -1;
 	
@@ -30928,126 +30928,239 @@ public abstract class GameCharacter implements XMLSaving {
 	
 	
 
-	// ------------------------------ Spinneret: ------------------------------ //
+	// ------------------------------ TailPussy: ------------------------------ //
 	
 	// Misc.:
-	public String getSpinneretDescriptor() {
-		return body.getSpinneret().getDescriptor(this);
+	public String getTailPussyDescriptor() {
+		return body.getTailPussy().getDescriptor(this);
 	}
-	public boolean hasTailSpinneret() {
-		return body!=null && getTailType().hasSpinneret();
+	public boolean hasTailTailPussy() {
+		return body!=null && getTailType().hasTailPussy();
 	}
-	public boolean hasLegSpinneret() {
-		return body!=null && this.getLegConfiguration()==LegConfiguration.ARACHNID && getLegType().hasSpinneret();
+	public boolean hasTailPussy() {
+		return hasTailTailPussy();
 	}
-	public boolean hasSpinneret() {
-		return hasTailSpinneret() || hasLegSpinneret();
-	}
-	public AbstractBodyCoveringType getSpinneretCovering() {
-		return BodyCoveringType.SPINNERET;
+	public AbstractBodyCoveringType getTailPussyCovering() {
+		return BodyCoveringType.TAIL_PUSSY;
 	}
 	// Orifice stats:
 	// Wetness:
-	public Wetness getSpinneretWetness() {
-		return body.getSpinneret().getWetness(this);
+	public Wetness getTailPussyWetness() {
+		return body.getTailPussy().getWetness(this);
 	}
-	public String setSpinneretWetness(int wetness) {
-		return body.getSpinneret().setWetness(this, wetness);
+	public String setTailPussyWetness(int wetness) {
+		return body.getTailPussy().setWetness(this, wetness);
 	}
-	public String setSpinneretWetness(Wetness wetness) {
-		return body.getSpinneret().setWetness(this, wetness.getValue());
+	public String setTailPussyWetness(Wetness wetness) {
+		return body.getTailPussy().setWetness(this, wetness.getValue());
 	}
-	public String incrementSpinneretWetness(int increment) {
-		return body.getSpinneret().setWetness(this, getSpinneretWetness().getValue() + increment);
+	public String incrementTailPussyWetness(int increment) {
+		return body.getTailPussy().setWetness(this, getTailPussyWetness().getValue() + increment);
 	}
 	// Capacity:
-	public Capacity getSpinneretCapacity() {
-		return body.getSpinneret().getCapacity();
+	public Capacity getTailPussyCapacity() {
+		return body.getTailPussy().getCapacity();
 	}
-	public float getSpinneretRawCapacityValue() {
-		return body.getSpinneret().getRawCapacityValue();
+	public float getTailPussyRawCapacityValue() {
+		return body.getTailPussy().getRawCapacityValue();
 	}
-	public float getSpinneretStretchedCapacity() {
-		return body.getSpinneret().getStretchedCapacity();
+	public float getTailPussyStretchedCapacity() {
+		return body.getTailPussy().getStretchedCapacity();
 	}
-	public void setSpinneretStretchedCapacity(float capacity){
-		body.getSpinneret().setStretchedCapacity(capacity);
+	public void setTailPussyStretchedCapacity(float capacity){
+		body.getTailPussy().setStretchedCapacity(capacity);
 	}
-	public void incrementSpinneretStretchedCapacity(float increment){
-		body.getSpinneret().setStretchedCapacity(getSpinneretStretchedCapacity() + increment);
+	public void incrementTailPussyStretchedCapacity(float increment){
+		body.getTailPussy().setStretchedCapacity(getTailPussyStretchedCapacity() + increment);
 	}
-	public String setSpinneretCapacity(float capacity, boolean setStretchedValueToNewValue) {
-		return body.getSpinneret().setCapacity(this, capacity, setStretchedValueToNewValue);
+	public String setTailPussyCapacity(float capacity, boolean setStretchedValueToNewValue) {
+		return body.getTailPussy().setCapacity(this, capacity, setStretchedValueToNewValue);
 	}
-	public String setSpinneretCapacity(Capacity capacity, boolean setStretchedValueToNewValue) {
-		return body.getSpinneret().setCapacity(this, capacity.getMedianValue(), setStretchedValueToNewValue);
+	public String setTailPussyCapacity(Capacity capacity, boolean setStretchedValueToNewValue) {
+		return body.getTailPussy().setCapacity(this, capacity.getMedianValue(), setStretchedValueToNewValue);
 	}
-	public String incrementSpinneretCapacity(float increment, boolean setStretchedValueToNewValue) {
-		return setSpinneretCapacity(getSpinneretRawCapacityValue() + increment, setStretchedValueToNewValue);
+	public String incrementTailPussyCapacity(float increment, boolean setStretchedValueToNewValue) {
+		return setTailPussyCapacity(getTailPussyRawCapacityValue() + increment, setStretchedValueToNewValue);
 	}
 	// Depth:
-	public int getSpinneretMaximumPenetrationDepthComfortable() {
-		return body.getSpinneret().getMaximumPenetrationDepthComfortable(this);
+	public int getTailPussyMaximumPenetrationDepthComfortable() {
+		return body.getTailPussy().getMaximumPenetrationDepthComfortable(this);
 	}
-	public int getSpinneretMaximumPenetrationDepthUncomfortable() {
-		return body.getSpinneret().getMaximumPenetrationDepthUncomfortable(this);
+	public int getTailPussyMaximumPenetrationDepthUncomfortable() {
+		return body.getTailPussy().getMaximumPenetrationDepthUncomfortable(this);
 	}
-	public OrificeDepth getSpinneretDepth() {
-		return body.getSpinneret().getDepth(this);
+	public OrificeDepth getTailPussyDepth() {
+		return body.getTailPussy().getDepth(this);
 	}
-	public String setSpinneretDepth(int depth) {
-		return body.getSpinneret().setDepth(this, depth);
+	public String setTailPussyDepth(int depth) {
+		return body.getTailPussy().setDepth(this, depth);
 	}
-	public String incrementSpinneretDepth(int increment) {
-		return setSpinneretDepth(getSpinneretDepth().getValue() + increment);
+	public String incrementTailPussyDepth(int increment) {
+		return setTailPussyDepth(getTailPussyDepth().getValue() + increment);
 	}
 	// Elasticity:
-	public OrificeElasticity getSpinneretElasticity() {
-		return body.getSpinneret().getElasticity();
+	public OrificeElasticity getTailPussyElasticity() {
+		return body.getTailPussy().getElasticity();
 	}
-	public String setSpinneretElasticity(int elasticity) {
-		return body.getSpinneret().setElasticity(this, elasticity);
+	public String setTailPussyElasticity(int elasticity) {
+		return body.getTailPussy().setElasticity(this, elasticity);
 	}
-	public String incrementSpinneretElasticity(int increment) {
-		return setSpinneretElasticity(getSpinneretElasticity().getValue() + increment);
+	public String incrementTailPussyElasticity(int increment) {
+		return setTailPussyElasticity(getTailPussyElasticity().getValue() + increment);
 	}
 	// Plasticity:
-	public OrificePlasticity getSpinneretPlasticity() {
-		return body.getSpinneret().getPlasticity();
+	public OrificePlasticity getTailPussyPlasticity() {
+		return body.getTailPussy().getPlasticity();
 	}
-	public String setSpinneretPlasticity(int plasticity) {
-		return body.getSpinneret().setPlasticity(this, plasticity);
+	public String setTailPussyPlasticity(int plasticity) {
+		return body.getTailPussy().setPlasticity(this, plasticity);
 	}
-	public String incrementSpinneretPlasticity(int increment) {
-		return setSpinneretPlasticity(getSpinneretPlasticity().getValue() + increment);
+	public String incrementTailPussyPlasticity(int increment) {
+		return setTailPussyPlasticity(getTailPussyPlasticity().getValue() + increment);
 	}
 	// Virginity:
-	public boolean isSpinneretVirgin() {
-		return body.getSpinneret().isVirgin();
+	public boolean isTailPussyVirgin() {
+		return body.getTailPussy().isVirgin();
 	}
-	public void setSpinneretVirgin(boolean virgin) {
-		body.getSpinneret().setVirgin(virgin);
+	public void setTailPussyVirgin(boolean virgin) {
+		body.getTailPussy().setVirgin(virgin);
 	}
 	// Modifiers:
-	public Set<OrificeModifier> getSpinneretOrificeModifiers() {
-		return body.getSpinneret().getOrificeModifiers();
+	public Set<OrificeModifier> getTailPussyOrificeModifiers() {
+		return body.getTailPussy().getOrificeModifiers();
 	}
-	public boolean hasSpinneretOrificeModifier(OrificeModifier modifier) {
-		return body.getSpinneret().hasOrificeModifier(modifier);
+	public boolean hasTailPussyOrificeModifier(OrificeModifier modifier) {
+		return body.getTailPussy().hasOrificeModifier(modifier);
 	}
-	public String addSpinneretOrificeModifier(OrificeModifier modifier) {
-		return body.getSpinneret().addOrificeModifier(this, modifier);
+	public String addTailPussyOrificeModifier(OrificeModifier modifier) {
+		return body.getTailPussy().addOrificeModifier(this, modifier);
 	}
-	public String removeSpinneretOrificeModifier(OrificeModifier modifier) {
-		return body.getSpinneret().removeOrificeModifier(this, modifier);
+	public String removeTailPussyOrificeModifier(OrificeModifier modifier) {
+		return body.getTailPussy().removeOrificeModifier(this, modifier);
 	}
-	public void clearSpinneretOrificeModifiers() {
-		body.getSpinneret().clearOrificeModifiers();
+	public void clearTailPussyOrificeModifiers() {
+		body.getTailPussy().clearOrificeModifiers();
 	}
-	
-	
-	
-	// ------------------------------ Tail: ------------------------------ //
+
+
+    // ------------------------------ Spinneret: ------------------------------ //
+
+    // Misc.:
+    public String getSpinneretDescriptor() {
+        return body.getSpinneret().getDescriptor(this);
+    }
+    public boolean hasTailSpinneret() {
+        return body!=null && getTailType().hasSpinneret();
+    }
+    public boolean hasLegSpinneret() {
+        return body!=null && this.getLegConfiguration()==LegConfiguration.ARACHNID && getLegType().hasSpinneret();
+    }
+    public boolean hasSpinneret() {
+        return hasTailSpinneret() || hasLegSpinneret();
+    }
+    public AbstractBodyCoveringType getSpinneretCovering() {
+        return BodyCoveringType.SPINNERET;
+    }
+    // Orifice stats:
+    // Wetness:
+    public Wetness getSpinneretWetness() {
+        return body.getSpinneret().getWetness(this);
+    }
+    public String setSpinneretWetness(int wetness) {
+        return body.getSpinneret().setWetness(this, wetness);
+    }
+    public String setSpinneretWetness(Wetness wetness) {
+        return body.getSpinneret().setWetness(this, wetness.getValue());
+    }
+    public String incrementSpinneretWetness(int increment) {
+        return body.getSpinneret().setWetness(this, getSpinneretWetness().getValue() + increment);
+    }
+    // Capacity:
+    public Capacity getSpinneretCapacity() {
+        return body.getSpinneret().getCapacity();
+    }
+    public float getSpinneretRawCapacityValue() {
+        return body.getSpinneret().getRawCapacityValue();
+    }
+    public float getSpinneretStretchedCapacity() {
+        return body.getSpinneret().getStretchedCapacity();
+    }
+    public void setSpinneretStretchedCapacity(float capacity){
+        body.getSpinneret().setStretchedCapacity(capacity);
+    }
+    public void incrementSpinneretStretchedCapacity(float increment){
+        body.getSpinneret().setStretchedCapacity(getSpinneretStretchedCapacity() + increment);
+    }
+    public String setSpinneretCapacity(float capacity, boolean setStretchedValueToNewValue) {
+        return body.getSpinneret().setCapacity(this, capacity, setStretchedValueToNewValue);
+    }
+    public String setSpinneretCapacity(Capacity capacity, boolean setStretchedValueToNewValue) {
+        return body.getSpinneret().setCapacity(this, capacity.getMedianValue(), setStretchedValueToNewValue);
+    }
+    public String incrementSpinneretCapacity(float increment, boolean setStretchedValueToNewValue) {
+        return setSpinneretCapacity(getSpinneretRawCapacityValue() + increment, setStretchedValueToNewValue);
+    }
+    // Depth:
+    public int getSpinneretMaximumPenetrationDepthComfortable() {
+        return body.getSpinneret().getMaximumPenetrationDepthComfortable(this);
+    }
+    public int getSpinneretMaximumPenetrationDepthUncomfortable() {
+        return body.getSpinneret().getMaximumPenetrationDepthUncomfortable(this);
+    }
+    public OrificeDepth getSpinneretDepth() {
+        return body.getSpinneret().getDepth(this);
+    }
+    public String setSpinneretDepth(int depth) {
+        return body.getSpinneret().setDepth(this, depth);
+    }
+    public String incrementSpinneretDepth(int increment) {
+        return setSpinneretDepth(getSpinneretDepth().getValue() + increment);
+    }
+    // Elasticity:
+    public OrificeElasticity getSpinneretElasticity() {
+        return body.getSpinneret().getElasticity();
+    }
+    public String setSpinneretElasticity(int elasticity) {
+        return body.getSpinneret().setElasticity(this, elasticity);
+    }
+    public String incrementSpinneretElasticity(int increment) {
+        return setSpinneretElasticity(getSpinneretElasticity().getValue() + increment);
+    }
+    // Plasticity:
+    public OrificePlasticity getSpinneretPlasticity() {
+        return body.getSpinneret().getPlasticity();
+    }
+    public String setSpinneretPlasticity(int plasticity) {
+        return body.getSpinneret().setPlasticity(this, plasticity);
+    }
+    public String incrementSpinneretPlasticity(int increment) {
+        return setSpinneretPlasticity(getSpinneretPlasticity().getValue() + increment);
+    }
+    // Virginity:
+    public boolean isSpinneretVirgin() {
+        return body.getSpinneret().isVirgin();
+    }
+    public void setSpinneretVirgin(boolean virgin) {
+        body.getSpinneret().setVirgin(virgin);
+    }
+    // Modifiers:
+    public Set<OrificeModifier> getSpinneretOrificeModifiers() {
+        return body.getSpinneret().getOrificeModifiers();
+    }
+    public boolean hasSpinneretOrificeModifier(OrificeModifier modifier) {
+        return body.getSpinneret().hasOrificeModifier(modifier);
+    }
+    public String addSpinneretOrificeModifier(OrificeModifier modifier) {
+        return body.getSpinneret().addOrificeModifier(this, modifier);
+    }
+    public String removeSpinneretOrificeModifier(OrificeModifier modifier) {
+        return body.getSpinneret().removeOrificeModifier(this, modifier);
+    }
+    public void clearSpinneretOrificeModifiers() {
+        body.getSpinneret().clearOrificeModifiers();
+    }
+
+    // ------------------------------ Tail: ------------------------------ //
 
 	public boolean hasTail() {
 		return getTailType() != TailType.NONE;

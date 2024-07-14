@@ -675,7 +675,9 @@ public class TailType {
 			Util.newArrayListOfValues(
 					BodyPartTag.TAIL_SLEEP_HUGGING,
 					BodyPartTag.TAIL_TYPE_FUR,
-					BodyPartTag.TAIL_TAPERING_NONE), false) {
+					BodyPartTag.TAIL_TAPERING_NONE,
+					BodyPartTag.TAIL_PUSSY),
+					false) {
 	};
 	
 	public static final AbstractTailType FOX_MORPH_MAGIC = new AbstractTailType(

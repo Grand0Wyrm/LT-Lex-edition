@@ -156,6 +156,7 @@ public class Body implements XMLSaving {
 	private Wing wing;
 
 	private OrificeSpinneret spinneret;
+	private OrificeTailPussy tailPussy;
 	
 	private GenitalArrangement genitalArrangement;
 	
@@ -211,6 +212,7 @@ public class Body implements XMLSaving {
 		private Vagina vagina = new Vagina(VaginaType.NONE, 0, 0, 0, 0, 0, 2, 3, 3, true);
 		private Wing wing = new Wing(WingType.NONE, 0);
 		private OrificeSpinneret spinneret = new OrificeSpinneret();
+		private OrificeTailPussy tailPussy = new OrificeTailPussy();
 
 		public BodyBuilder(Arm arm, Ass ass, Breast breast, Face face, Eye eye, Ear ear, Hair hair, Leg leg, Torso torso, BodyMaterial bodyMaterial, GenitalArrangement genitalArrangement, int height, int femininity, int bodySize, int muscle) {
 			this.arm = arm;
@@ -301,6 +303,7 @@ public class Body implements XMLSaving {
 		wing = builder.wing;
 		
 		spinneret = builder.spinneret;
+		tailPussy = builder.tailPussy;
 		
 		bodyMaterial = builder.bodyMaterial;
 		genitalArrangement = builder.genitalArrangement;
@@ -3865,9 +3868,17 @@ public class Body implements XMLSaving {
 	public OrificeSpinneret getSpinneret() {
 		return spinneret;
 	}
+
+	public OrificeTailPussy getTailPussy() {
+		return tailPussy;
+	}
 	
 	public boolean hasTailSpinneret() {
 		return getTailType().hasSpinneret();
+	}
+
+	public boolean hasTailPussy() {
+		return getTailType().hasTailPussy();
 	}
 	
 	public boolean hasLegSpinneret() {
@@ -5841,6 +5852,149 @@ public class Body implements XMLSaving {
 			}
 		}
 		
+		return UtilText.parse(owner, descriptionSB.toString());
+	}
+
+	public String getTailPussyDescription(GameCharacter owner) {
+		if(!owner.hasTailPussy()) {
+			return "";
+		}
+
+		descriptionSB = new StringBuilder();
+
+		if(owner.hasTailPussy()) {
+			descriptionSB.append("At the end of [npc.her] [npc.tail+], ");
+		}
+		descriptionSB.append("[npc.she] [npc.has] a [npc.tailPussyFullDescription(true)]. It is the perfect sexual orifice that secretes aphrodisiac fluids.");
+
+		// Virgin/capacity:
+		if(spinneret.isVirgin()) {
+			descriptionSB.append(" [npc.She] [npc.has] [style.colourExcellent(retained [npc.her] tail pussy virginity)].");
+
+		} else {
+			boolean virginityLossFound = false;
+			for(SexAreaPenetration pt : SexAreaPenetration.values()) {
+				if(pt.isTakesVirginity()) {
+					if(owner.getVirginityLoss(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.TAIL_PUSSY, pt))!=null) {
+						descriptionSB.append(" [style.colourArcane("+ owner.getVirginityLossDescription(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.TAIL_PUSSY, pt)) + ")]");
+						virginityLossFound = true;
+						break;
+					}
+				}
+			}
+			if(!virginityLossFound) {
+				descriptionSB.append(" [style.colourArcane([npc.Name] [npc.has] lost [npc.her] tail pussy virginity.)]");
+			}
+		}
+
+		descriptionSB.append(" [npc.Her] tail pussy is " + Capacity.getCapacityFromValue(tailPussy.getStretchedCapacity()).getDescriptor(true)+" and when lubricated can comfortably accommodate objects of up to"
+				+ " [style.colourSex("+ Units.size(Capacity.getMaximumComfortableDiameter(tailPussy.getElasticity(), tailPussy.getRawCapacityValue(), true)) + ")] in diameter.");
+
+		if(Main.game.isPenetrationLimitationsEnabled()) {
+			switch(owner.getTailPussyDepth()) {
+				default:
+					descriptionSB.append(" It is <span style='color:"+owner.getTailPussyDepth().getColour().toWebHexString()+";'>[npc.tailPussyDepth]</span>,");
+					break;
+				case TWO_AVERAGE:
+					descriptionSB.append(" It is of an <span style='color:"+owner.getTailPussyDepth().getColour().toWebHexString()+";'>average depth</span>,");
+					break;
+			}
+			if(owner.getBodyMaterial().isOrificesLimitedDepth()) {
+				if(owner.hasFetish(Fetish.FETISH_SIZE_QUEEN)) {
+					descriptionSB.append(" and as [npc.sheIsFull] a "+Fetish.FETISH_SIZE_QUEEN.getName(owner)+", [npc.she] can be pushed to [style.colourMinorGood(comfortably)] accommodate objects of a maximum length of "
+							+ " [style.colourSex("+Units.size(owner.getTailPussyMaximumPenetrationDepthUncomfortable())+")].");
+				} else {
+					descriptionSB.append(" allowing [npc.herHim] to [style.colourMinorGood(comfortably)] accommodate [style.colourSex("+Units.size(owner.getTailPussyMaximumPenetrationDepthComfortable())+")] of a penetrative object,"
+							+ " and [style.colourMinorBad(uncomfortably)] accommodate [style.colourSex("+Units.size(owner.getTailPussyMaximumPenetrationDepthUncomfortable())+")].");
+				}
+
+			} else {
+				if(owner.hasFetish(Fetish.FETISH_SIZE_QUEEN)) {
+					descriptionSB.append(" and as [npc.sheIsFull] a "+Fetish.FETISH_SIZE_QUEEN.getName(owner)+", combined with the fact that [npc.her] body is made out of [npc.bodyMaterial],"
+							+ " [npc.she] can be pushed to [style.colourMinorGood(comfortably)] accommodate objects of [style.colourSex(any length)].");
+				} else {
+					descriptionSB.append(" allowing [npc.herHim] to [style.colourMinorGood(comfortably)] accommodate [style.colourSex("+Units.size(owner.getTailPussyMaximumPenetrationDepthComfortable())+")] of a penetrative object,"
+							+ " and as [npc.her] body is made out of [npc.bodyMaterial], [npc.she] can be pushed to [style.colourMinorBad(uncomfortably)] accommodate objects of [style.colourSex(any length)].");
+				}
+			}
+		}
+
+		// Wetness:
+		switch (tailPussy.getWetness(owner)) {
+			case ZERO_DRY:
+				descriptionSB.append(" It's [style.colourWetness(completely dry and never gets wet)], no matter how aroused [npc.she] [npc.is].");
+				break;
+			case ONE_SLIGHTLY_MOIST:
+				descriptionSB.append(" It's [style.colourWetness(slightly moist)], and [npc.she] [npc.verb(need)] a huge amount of stimulation before [npc.she] [npc.verb(get)] wet.");
+				break;
+			case TWO_MOIST:
+				descriptionSB.append(" It's [style.colourWetness(moist)], but [npc.she] still [npc.verb(need)] a lot of stimulation before [npc.she] [npc.verb(get)] wet.");
+				break;
+			case THREE_WET:
+				descriptionSB.append(" It's of an [style.colourWetness(average wetness)], and [npc.she] only [npc.verb(need)] a small amount of foreplay before [npc.sheIs] wet enough for a pleasurable penetration.");
+				break;
+			case FOUR_SLIMY:
+				descriptionSB.append(" It's always [style.colourWetness(slimy and wet)], and [npc.sheIs] ready for penetration at a moment's notice.");
+				break;
+			case FIVE_SLOPPY:
+				descriptionSB.append(" Its surface is always coated in [style.colourWetness(slimy moisture)], and within, [npc.her] tail pussy is permanently [style.colourWetness(sloppy)] and practically begging to be fucked.");
+				break;
+			case SIX_SOPPING_WET:
+				descriptionSB.append(" [npc.Her] tail pussy is never anything less than [style.colourWetness(sopping wet)], and a trickle of [npc.her] natural lubricant constantly dribbles from it.");
+				break;
+			case SEVEN_DROOLING:
+				descriptionSB.append(" [npc.Her] tail pussy is [style.colourWetness(so wet that it audibly squelches with every step [npc.she] [npc.verb(take)])], and a constant stream of juices flow from [npc.her] inviting orifice.");
+				break;
+		}
+
+		// Elasticity & plasticity:
+		switch (tailPussy.getElasticity()) {
+			case ZERO_UNYIELDING:
+				descriptionSB.append(" It is [style.colourElasticity(extremely unyielding)],");
+				break;
+			case ONE_RIGID:
+				descriptionSB.append(" It [style.colourElasticity(takes a huge amount of effort to stretch it out)],");
+				break;
+			case TWO_FIRM:
+				descriptionSB.append(" It [style.colourElasticity(does not stretch very easily)],");
+				break;
+			case THREE_FLEXIBLE:
+				descriptionSB.append(" It [style.colourElasticity(reluctantly stretches out)] when penetrated,");
+				break;
+			case FOUR_LIMBER:
+				descriptionSB.append(" It is [style.colourElasticity(somewhat resistant to being stretched out)],");
+				break;
+			case FIVE_STRETCHY:
+				descriptionSB.append(" It [style.colourElasticity(stretches out fairly easily)],");
+				break;
+			case SIX_SUPPLE:
+				descriptionSB.append(" It [style.colourElasticity(stretches out very easily)],");
+				break;
+			case SEVEN_ELASTIC:
+				descriptionSB.append(" It is [style.colourElasticity(extremely elastic)],");
+				break;
+		}
+		descriptionSB.append(" and after being used, it "+tailPussy.getPlasticity().getDescription()+".");
+
+		for(OrificeModifier om : OrificeModifier.values()) {
+			if(owner.hasTailPussyOrificeModifier(om)) {
+				switch(om) {
+					case MUSCLE_CONTROL:
+						descriptionSB.append(" [npc.She] [npc.has] a series of internal muscles lining the inside of [npc.her] tail pussy, allowing [npc.herHim] to expertly squeeze and grip down on any intruding object.");
+						break;
+					case PUFFY:
+						descriptionSB.append(" The rim has swollen up into being particularly big and puffy.");
+						break;
+					case RIBBED:
+						descriptionSB.append(" The inside of [npc.her] tail pussy is lined with sensitive, fleshy ribs, which grant [npc.herHim] extra pleasure when stimulated.");
+						break;
+					case TENTACLED:
+						descriptionSB.append(" [npc.Her] tail pussy is filled with tiny little tentacles, which wriggle and squirm with a mind of their own.");
+						break;
+				}
+			}
+		}
+
 		return UtilText.parse(owner, descriptionSB.toString());
 	}
 	
