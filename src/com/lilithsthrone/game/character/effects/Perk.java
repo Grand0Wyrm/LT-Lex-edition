@@ -1373,7 +1373,22 @@ public class Perk {
 					+ " Insufferably arrogant, [npc.name] [npc.verb(know)] that [npc.sheIsFull] better than everyone else, and won't let any filthy peasant get the better of [npc.herHim]!");
 		}
 	};
-	
+
+	public static AbstractPerk JOB_PET = new AbstractPerk(20,
+			true,
+			"pet",
+			PerkCategory.JOB,
+			"perks/jobs/aristocrat",
+			PresetColour.BASE_GOLD,
+			Util.newHashMapOfValues(
+					new Value<>(Attribute.HEALTH_MAXIMUM, 20),
+					new Value<>(Attribute.DAMAGE_UNARMED, 50)),
+			Util.newArrayListOfValues("Who is a good pet?")) {
+		@Override
+		public String getDescription(GameCharacter owner) {
+			return UtilText.parse(owner, "A perfect pet.");
+		}
+	};
 	
 	public static AbstractPerk JOB_MAID = new AbstractPerk(20,
 			true,

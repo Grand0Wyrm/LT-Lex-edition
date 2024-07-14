@@ -47,10 +47,16 @@ public enum PhysiqueLevel {
 		}
 	},
 	
-	FIVE_HERCULEAN("herculean", 90, 100, PresetColour.PHYSIQUE_STAGE_FIVE) {
+	FIVE_HERCULEAN("herculean", 90, 120, PresetColour.PHYSIQUE_STAGE_FIVE) {
 		@Override
 		public AbstractStatusEffect getRelatedStatusEffect() {
 			return StatusEffect.PHYSIQUE_PERK_5;
+		}
+	},
+	SIX_GODLIKE("godlike", 120, 150, PresetColour.PHYSIQUE_STAGE_FIVE) {
+		@Override
+		public AbstractStatusEffect getRelatedStatusEffect() {
+			return StatusEffect.PHYSIQUE_PERK_6;
 		}
 	};
 	
@@ -88,6 +94,6 @@ public enum PhysiqueLevel {
 			if(value>=al.getMinimumValue() && value<al.getMaximumValue())
 				return al;
 		}
-		return FIVE_HERCULEAN;
+		return SIX_GODLIKE;
 	}
 }

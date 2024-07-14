@@ -272,6 +272,36 @@ public class StatusEffect {
 		}
 	};
 
+	public static AbstractStatusEffect PHYSIQUE_PERK_6 = new AbstractStatusEffect(StatusEffectCategory.ATTRIBUTE,
+			100,
+			"Godlike",
+			"attStrength5",
+			PresetColour.ATTRIBUTE_PHYSIQUE,
+			PresetColour.BASE_BLACK,
+			PresetColour.BASE_BLACK,
+			true,
+			Util.newHashMapOfValues(new Value<>(Attribute.DAMAGE_PHYSICAL, 30f),
+					new Value<>(Attribute.CRITICAL_DAMAGE, 75f)),
+			Util.newArrayListOfValues(
+					"Base [style.colourUnarmed(unarmed damage)] equals [style.colourMinorGood(30% of physique)]")) {
+		@Override
+		public String getName(GameCharacter target) {
+			return Util.capitaliseSentence(PhysiqueLevel.SIX_GODLIKE.getName());
+		}
+		@Override
+		public String getDescription(GameCharacter owner) {
+			return UtilText.parse(owner, "[npc.NamePos] body is the stuff beyond that of legend; mere mortals and gods alike look upon [npc.herHim] in fear and awe!");
+		}
+		@Override
+		public boolean isConditionsMet(GameCharacter target) {
+			return PhysiqueLevel.getPhysiqueLevelFromValue(target.getAttributeValue(Attribute.MAJOR_PHYSIQUE)) == PhysiqueLevel.SIX_GODLIKE;
+		}
+		@Override
+		public boolean renderInEffectsPanel() {
+			return false;
+		}
+	};
+
 	// Intelligence:
 	public static AbstractStatusEffect INTELLIGENCE_PERK_0_OLD_WORLD = new AbstractStatusEffect(StatusEffectCategory.ATTRIBUTE,
 			100,
@@ -509,6 +539,7 @@ public class StatusEffect {
 			return false;
 		}
 	};
+
 
 	// Corruption:
 	public static AbstractStatusEffect CORRUPTION_PERK_0 = new AbstractStatusEffect(StatusEffectCategory.ATTRIBUTE,

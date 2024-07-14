@@ -106,6 +106,8 @@
 				<version>${maven-compile-plugin.version}</version>
 				<configuration>
 					<release>${maven.compiler.release}</release>
+					<source>14</source>
+					<target>14</target>
 				</configuration>
 			</plugin>
 			<plugin>

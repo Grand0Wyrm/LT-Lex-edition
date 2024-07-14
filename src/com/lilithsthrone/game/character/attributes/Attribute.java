@@ -24,7 +24,7 @@ public class Attribute {
 	public static AbstractAttribute HEALTH_MAXIMUM = new AbstractAttribute(false,
 			1,
 			1,
-			1000,
+			1500,
 			"health",
 			"Health",
 			"healthIcon",
@@ -44,7 +44,7 @@ public class Attribute {
 	public static AbstractAttribute MANA_MAXIMUM = new AbstractAttribute(false,
 			1,
 			1,
-			1000,
+			1500,
 			"aura",
 			"Aura",
 			"manaIcon",
@@ -169,7 +169,7 @@ public class Attribute {
 	public static AbstractAttribute MAJOR_PHYSIQUE = new AbstractAttribute(false,
 			0,
 			0,
-			100,
+			150,
 			"physique",
 			"Physique",
 			"strengthIcon",
@@ -193,7 +193,7 @@ public class Attribute {
 	public static AbstractAttribute MAJOR_ARCANE = new AbstractAttribute(false,
 			0,
 			0,
-			100,
+			150,
 			"arcane",
 			"Arcane",
 			"intelligenceIcon",
@@ -286,7 +286,7 @@ public class Attribute {
 
 	// Combat attributes:
 
-	public static AbstractAttribute CRITICAL_DAMAGE = new AbstractAttribute(true, 150, 100, 500, "critical power", "Critical power", "shieldIcon", PresetColour.ATTRIBUTE_HEALTH, "impact", "failure", null) {
+	public static AbstractAttribute CRITICAL_DAMAGE = new AbstractAttribute(true, 150, 100, 750, "critical power", "Critical power", "shieldIcon", PresetColour.ATTRIBUTE_HEALTH, "impact", "failure", null) {
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return "Each point gives 1% extra critical power.";
@@ -389,7 +389,7 @@ public class Attribute {
 	
 	// Damages:
 
-	public static AbstractAttribute DAMAGE_UNARMED = new AbstractAttribute(true, 0, -80, 100, "unarmed damage", "Unarmed damage", "swordIcon", PresetColour.DAMAGE_TYPE_UNARMED, "martial arts", "martial incompetence", null) {
+	public static AbstractAttribute DAMAGE_UNARMED = new AbstractAttribute(true, 0, -80, 150, "unarmed damage", "Unarmed damage", "swordIcon", PresetColour.DAMAGE_TYPE_UNARMED, "martial arts", "martial incompetence", null) {
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return "Increases damage dealt from unarmed attacks, including special attacks obtained from non-human bodyparts.";

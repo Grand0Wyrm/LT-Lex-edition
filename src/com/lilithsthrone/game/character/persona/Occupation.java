@@ -296,7 +296,12 @@ public enum Occupation {
 			"aristocrat",
 			"You've never had to work a day in your life, thanks to the fact that you're a member of an old, and exceedingly wealthy, aristocratic family.",
 			OccupationTag.PLAYER_ONLY),
-	
+
+	PET(Perk.JOB_PET,
+			"pet",
+			"You are a Pet.",
+			OccupationTag.PLAYER_ONLY),
+
 	MAID(Perk.JOB_MAID,
 		"maid",
 		"You're a maid, hired by a wealthy family to keep their mansion clean.",

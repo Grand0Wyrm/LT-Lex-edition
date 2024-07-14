@@ -208,24 +208,30 @@ public abstract class AbstractHairType implements BodyPartTypeInterface {
 	
 	@Override
 	public String getNameSingular(GameCharacter gc) {
-		if(gc.getBodyMaterial()==BodyMaterial.SLIME) {
-			return "slime-"+name;
-		}
-		if(gc.getBodyMaterial()==BodyMaterial.SILICONE) {
-			return "silicone-"+name;
-		}
-		return name;
+		switch(gc.getBodyMaterial()) {
+                    case SLIME:
+                        return "slime-"+name;
+                    case PLANT:
+                        return "leaf-"+name;
+					case SILICONE:
+						return "silicone-"+name;
+                    default:
+                        return name;
+                }
 	}
 	
 	@Override
 	public String getNamePlural(GameCharacter gc) {
-		if(gc.getBodyMaterial()==BodyMaterial.SLIME) {
-			return "slime-"+namePlural;
-		}
-		if(gc.getBodyMaterial()==BodyMaterial.SILICONE) {
-			return "silicone-"+namePlural;
-		}
-		return namePlural;
+                switch(gc.getBodyMaterial()) {
+                    case SLIME:
+                        return "slime-"+namePlural;
+                    case PLANT:
+                        return "leaf-"+namePlural;
+					case SILICONE:
+						return "silicone-"+namePlural;
+                    default:
+                        return namePlural;
+                }
 	}
 
 	@Override

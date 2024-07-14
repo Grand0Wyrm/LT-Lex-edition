@@ -316,12 +316,12 @@ public abstract class GameCharacter implements XMLSaving {
 	public static final String RESTING_LUST_CALCULATION = "(Corruption/2) + Bonuses";
 	public static final String PREGNANCY_CALCULATION = "10% + (Cum-character's Virility% / 2) + (Womb-character's Fertility% / 2)";
 
-	public static final int LEVEL_CAP = 50;
-	public static final int MAX_TRAITS = 6;
+	public static final int LEVEL_CAP = 75;
+	public static final int MAX_TRAITS = 10;
 	public static final int MAX_COMBAT_MOVES = 8;
 	public static final int DEFAULT_COMBAT_AP = 3;
 
-	public static final int MINIMUM_AGE = 18;
+	public static final int MINIMUM_AGE = 10;
 	
 	public static final int DEFAULT_TIME_START_VALUE = -1;
 	
